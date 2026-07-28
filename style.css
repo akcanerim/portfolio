@@ -1,0 +1,297 @@
+/* ===== Fonts ===== */
+/* Space Grotesk for headings - has that clean, geometric feel
+   Inter for body text - easy on the eyes for long paragraphs */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
+
+/* ===== Reset & Variables ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-dark: #0d1117;
+  --bg-darker: #080b0f;
+  --bg-card: #161b22;
+  --text-main: #e6edf3;
+  --text-muted: #8b949e;
+  --accent: #3fb950;
+  --accent-glow: rgba(63, 185, 80, 0.25);
+  --border: #21262d;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+/* ===== Header / Nav ===== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(13, 17, 23, 0.85);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
+
+nav {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1.2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-main);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-main);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* ===== Hero ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+  position: relative;
+  overflow: hidden;
+  /* particle canvas from script.js will sit behind this content */
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+}
+
+.hero p {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.btn {
+  display: inline-block;
+  background-color: var(--accent);
+  color: var(--bg-darker);
+  font-weight: 600;
+  padding: 0.9rem 2rem;
+  border-radius: 6px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+/* particle canvas gets added by script.js, this just makes sure it fills the hero */
+.hero canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+/* ===== Sections (shared spacing) ===== */
+section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* small underline accent under section titles */
+section h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background-color: var(--accent);
+  margin-top: 0.6rem;
+  border-radius: 2px;
+}
+
+/* fade-in animation, toggled by script.js when a section scrolls into view */
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===== About ===== */
+.about p {
+  color: var(--text-muted);
+  max-width: 650px;
+  font-size: 1.1rem;
+}
+
+/* ===== Projects ===== */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+}
+
+/* drop a project screenshot in with <img class="project-img"> and this handles the sizing */
+.project-card .project-img {
+  width: 100%;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.03);
+}
+
+.project-card h3 {
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+/* ===== Certificates ===== */
+.certificate-list {
+  list-style: none;
+}
+
+.certificate-list li {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+/* ===== Contact ===== */
+.contact p {
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.contact a {
+  font-weight: 600;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ===== Mobile ===== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-darker);
+    padding: 1.5rem;
+    gap: 1.2rem;
+    border-bottom: 1px solid var(--border);
+  }
+}
