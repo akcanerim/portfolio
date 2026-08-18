@@ -140,7 +140,7 @@ nav {
   box-shadow: 0 8px 24px var(--accent-glow);
 }
 
-/* particle canvas gets added by script.js, this just makes sure it fills the hero */
+/* an canvas to particle effects, gets added by script.js, this just makes sure it fills the hero */
 .hero canvas {
   position: absolute;
   top: 0;
@@ -195,8 +195,10 @@ section.visible {
 /* ===== About ===== */
 .about p {
   color: var(--text-muted);
-  max-width: 650px;
+  max-width: 60ch;
   font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
 }
 
 /* ===== Projects ===== */
