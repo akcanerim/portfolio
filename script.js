@@ -46,8 +46,6 @@ canvas.addEventListener('mousemove', function(e) {
 });
 
 
-
-
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -84,3 +82,40 @@ function animate() {
 }
 
 animate();
+
+// enlarge a project image when clicked, close when clicking the overlay
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxPrev = document.getElementById('lightbox-prev');
+const lightboxNext = document.getElementById('lightbox-next');
+const projectImages = document.querySelectorAll('.project-images img');
+
+let currentImageIndex = 0;
+
+function showImage(index) {
+  lightboxImg.src = projectImages[index].src;
+  currentImageIndex = index;
+}
+
+projectImages.forEach(function(img, index) {
+  img.addEventListener('click', function() {
+    showImage(index);
+    lightbox.classList.add('active');
+  });
+});
+
+lightboxPrev.addEventListener('click', function(e) {
+  e.stopPropagation();
+  const newIndex = (currentImageIndex - 1 + projectImages.length) % projectImages.length;
+  showImage(newIndex);
+});
+
+lightboxNext.addEventListener('click', function(e) {
+  e.stopPropagation();
+  const newIndex = (currentImageIndex + 1) % projectImages.length;
+  showImage(newIndex);
+});
+
+lightbox.addEventListener('click', function() {
+  lightbox.classList.remove('active');
+});

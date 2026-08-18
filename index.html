@@ -42,17 +42,22 @@
     <p>I'm currently looking for opportunities where I can keep building that overlap between solid web fundamentals and practical AI features.</p>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects">
-    <h2>Projects</h2>
-    <div class="project-grid">
-      <div class="project-card">
-        <h3>Project Name</h3>
-        <p>Short description of the project.</p>
-        <a href="#">View on GitHub</a>
+<!-- Projects Section -->
+<section id="projects" class="projects">
+  <h2>Projects</h2>
+  <div class="project-grid">
+    <div class="project-card">
+      <h3>UniTest</h3>
+      <p>A system that takes an exam paper an instructor uploads, detects the numeric values in each question, and uses AI to change those values while keeping the underlying logic intact. The goal is to generate a unique version of the exam for every student, making it fairer and cutting down on copying. Built with a teammate, and still actively growing.</p>
+      <div class="project-images">
+        <img src="images/ornek-sinav-kagidi.png" alt="Sample exam paper">
+        <img src="images/soru-kagidi-ciktisi.png" alt="Question paper printout">
+        <img src="images/cevap-kagidi-ciktisi.png" alt="Answer paper printout">
       </div>
+      <span class="project-note">Private repo (team project, not public yet)</span>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Certificates Section -->
   <section id="certificates" class="certificates">
@@ -75,6 +80,12 @@
   <footer>
     <p>&copy; 2026 Erim Akcan</p>
   </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-arrow lightbox-prev" id="lightbox-prev">&#10094;</button>
+    <img src="" alt="" id="lightbox-img">
+    <button class="lightbox-arrow lightbox-next" id="lightbox-next">&#10095;</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
