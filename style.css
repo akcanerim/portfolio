@@ -363,3 +363,38 @@ footer {
 .lightbox-arrow:hover {
   color: var(--accent);
 }
+
+/* ===== Gallery ===== */
+.gallery-strip {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  padding: 1rem 0 1.5rem;
+  scroll-snap-type: x mandatory;
+}
+
+.gallery-item {
+  flex: 0 0 220px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+
+img.gallery-item {
+  cursor: pointer;
+}
+
+.gallery-item:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.gallery-item:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.gallery-item:hover {
+  transform: rotate(0deg) scale(1.05);
+}

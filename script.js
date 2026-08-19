@@ -83,36 +83,44 @@ function animate() {
 
 animate();
 
-// enlarge a project image when clicked, close when clicking the overlay
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const lightboxPrev = document.getElementById('lightbox-prev');
 const lightboxNext = document.getElementById('lightbox-next');
-const projectImages = document.querySelectorAll('.project-images img');
 
+// keeps track of which images belong to the group that's currently open,
+// and which one of them we're looking at right now
+let currentGroupImages = [];
 let currentImageIndex = 0;
 
 function showImage(index) {
-  lightboxImg.src = projectImages[index].src;
   currentImageIndex = index;
+  lightboxImg.src = currentGroupImages[index].src;
 }
 
-projectImages.forEach(function(img, index) {
-  img.addEventListener('click', function() {
-    showImage(index);
-    lightbox.classList.add('active');
+// there can be more than one photo group on the page (project screenshots,
+// personal gallery, etc), so we go through each one separately and only
+// let the arrows move within that same group
+document.querySelectorAll('.lightbox-group').forEach(function(group) {
+  const imagesInGroup = group.querySelectorAll('img');
+  imagesInGroup.forEach(function(img, index) {
+    img.addEventListener('click', function() {
+      currentGroupImages = Array.from(imagesInGroup);
+      showImage(index);
+      lightbox.classList.add('active');
+    });
   });
 });
 
 lightboxPrev.addEventListener('click', function(e) {
   e.stopPropagation();
-  const newIndex = (currentImageIndex - 1 + projectImages.length) % projectImages.length;
+  const newIndex = (currentImageIndex - 1 + currentGroupImages.length) % currentGroupImages.length;
   showImage(newIndex);
 });
 
 lightboxNext.addEventListener('click', function(e) {
   e.stopPropagation();
-  const newIndex = (currentImageIndex + 1) % projectImages.length;
+  const newIndex = (currentImageIndex + 1) % currentGroupImages.length;
   showImage(newIndex);
 });
 
