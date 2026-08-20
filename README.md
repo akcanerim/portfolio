@@ -2,7 +2,7 @@
 
 This is my personal portfolio site. I'm building it while I look for my first software engineering role, mainly to have one place where I can show what I've actually built.
 
-**Live site:** not deployed yet, working on it.
+**Live site:** [akcanerim.github.io/portfolio](https://akcanerim.github.io/portfolio/)
 
 ## What's in it
 
