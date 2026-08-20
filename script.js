@@ -5,10 +5,53 @@ menuToggle.addEventListener('click', function() {
 
 const navLinks = document.querySelector('.nav-links');
 
+// types out the About Me text one character at a time, only the first time
+// the section scrolls into view, so it reads like it's being written live
+const aboutTextElements = document.querySelectorAll('.about p, .about h3');
+
+// grab the real text and immediately blank the page out, before the user
+// ever scrolls down here, so About starts empty instead of flashing full text
+const aboutOriginalTexts = Array.from(aboutTextElements).map(function(el) {
+  return el.textContent;
+});
+aboutTextElements.forEach(function(el) {
+  el.textContent = '';
+});
+
+let aboutHasTyped = false;
+
+function typeElement(element, text, speed, onDone) {
+  let i = 0;
+  const interval = setInterval(function() {
+    element.textContent += text.charAt(i);
+    i++;
+    if (i >= text.length) {
+      clearInterval(interval);
+      if (onDone) onDone();
+    }
+  }, speed);
+}
+
+function typeAboutText() {
+  let index = 0;
+  function typeNext() {
+    if (index >= aboutTextElements.length) return;
+    typeElement(aboutTextElements[index], aboutOriginalTexts[index], 4, function() {
+      index++;
+      typeNext();
+    });
+  }
+  typeNext();
+}
+
 const observer = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
         if(entry.isIntersecting){
             entry.target.classList.add('visible');
+            if (entry.target.id === 'about' && !aboutHasTyped) {
+                aboutHasTyped = true;
+                typeAboutText();
+            }
         }
     });
 });
@@ -83,6 +126,29 @@ function animate() {
 
 animate();
 
+// duplicate every gallery item once so the strip can loop without a visible jump.
+// when scrolling passes the original set, we quietly snap back to the start,
+// and because the clone looks identical, nobody notices the seam.
+const galleryStrip = document.querySelector('.gallery-strip');
+const originalGalleryItems = Array.from(galleryStrip.children);
+
+originalGalleryItems.forEach(function(item) {
+  const clone = item.cloneNode(true);
+  galleryStrip.appendChild(clone);
+
+  // cloned videos don't start playing on their own, so we nudge them manually
+  if (clone.tagName === 'VIDEO') {
+    clone.play();
+  }
+});
+
+galleryStrip.addEventListener('scroll', function() {
+  const halfwayPoint = galleryStrip.scrollWidth / 2;
+  if (galleryStrip.scrollLeft >= halfwayPoint) {
+    galleryStrip.scrollLeft -= halfwayPoint;
+  }
+});
+
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const lightboxPrev = document.getElementById('lightbox-prev');
@@ -127,3 +193,5 @@ lightboxNext.addEventListener('click', function(e) {
 lightbox.addEventListener('click', function() {
   lightbox.classList.remove('active');
 });
+
+

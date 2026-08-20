@@ -66,6 +66,14 @@ nav {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   font-size: 1.3rem;
+  color: var(--text-main);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.logo:hover {
+  color: var(--accent);
+  text-shadow: 0 0 12px var(--accent-glow);
 }
 
 .nav-links {
@@ -273,6 +281,16 @@ section.visible {
   border-radius: 8px;
   padding: 1rem 1.5rem;
   margin-bottom: 0.8rem;
+  color: var(--text-muted);
+}
+
+.certificate-list li {
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.certificate-list li:hover {
+  border-color: var(--accent);
+  transform: translateY(-3px);
 }
 
 /* ===== Contact ===== */
@@ -283,6 +301,22 @@ section.visible {
 
 .contact a {
   font-weight: 600;
+}
+
+.social-links {
+  display: flex;
+  gap: 1.2rem;
+  margin-top: 0.5rem;
+}
+
+.social-links a {
+  color: var(--text-muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
 }
 
 /* ===== Footer ===== */
