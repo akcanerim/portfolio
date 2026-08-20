@@ -26,4 +26,4 @@ open index.html
 
 ## Status
 
-Layout, animations, and content are mostly done. What's left: publishing it with GitHub Pages, and adding more projects and certificates as I finish them.
+The core site is done: layout, animations, and all the sections are in place. I'll keep adding new projects, certificates, and photos as I finish or collect them.
