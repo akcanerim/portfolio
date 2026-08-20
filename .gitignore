@@ -1,2 +1,8 @@
 CLAUDE.md
 .DS_Store
+
+#ignore the heic and mov docs.
+gallery/*.HEIC
+gallery/*.MOV
+gallery/*.mov
+gallery/b3f41739-200d-475e-a63f-104549fe7275.jpg
