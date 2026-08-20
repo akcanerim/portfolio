@@ -6,13 +6,13 @@ This is my personal portfolio site. I'm building it while I look for my first so
 
 ## What's in it
 
-Right now the site has a short intro, an about section, a projects section (still mostly a placeholder, I'll fill it in as I finish more things), a certificates section, and a contact section with links to my GitHub and LinkedIn.
+The site has an intro with an animated particle background, an about section, a personal gallery mixing Erasmus photos and a few things I like, a projects section (currently showing UniTest, a project I'm building with a teammate), a certificates section linking out to my real Coursera verifications, and a contact section with links to my GitHub and LinkedIn.
 
 ## Built with
 
 Plain HTML, CSS, and JavaScript. No React, no build tools, nothing fancy. I wanted to actually understand what every line does instead of letting a framework handle it for me, since I'm still pretty new to all of this.
 
-A few small details I'm proud of: it's dark themed with a green accent, sections fade in as you scroll down (using the browser's Intersection Observer), and there's a little particle animation in the hero section that reacts when you move your mouse over it. The nav also turns into a hamburger menu on smaller screens.
+A few small details I'm proud of: it's dark themed with a green accent, sections fade in as you scroll down using the Intersection Observer API, and there's a particle animation in the hero section that reacts when you move your mouse over it. The About text types itself out letter by letter the first time you scroll to it. The gallery is a horizontally scrolling strip that loops seamlessly, photos and videos mixed together. Clicking any photo (gallery or project screenshots) opens it in a shared lightbox with arrow navigation. The nav turns into a hamburger menu on smaller screens.
 
 ## Running it locally
 
@@ -26,4 +26,4 @@ open index.html
 
 ## Status
 
-Still very much in progress. The layout and animations are mostly done, the real content (project write-ups, certificates, photos) is what I'm working on next.
+Layout, animations, and content are mostly done. What's left: publishing it with GitHub Pages, and adding more projects and certificates as I finish them.

@@ -1,3 +1,5 @@
+// grabs the hamburger button and the nav menu, so tapping the button
+// can open and close the menu on small screens
 const menuToggle = document.querySelector('.menu-toggle');
 menuToggle.addEventListener('click', function() {
     navLinks.classList.toggle('open');
@@ -20,6 +22,8 @@ aboutTextElements.forEach(function(el) {
 
 let aboutHasTyped = false;
 
+// small helper that writes text into one element one letter at a time,
+// calling onDone once every letter has been added
 function typeElement(element, text, speed, onDone) {
   let i = 0;
   const interval = setInterval(function() {
@@ -32,6 +36,8 @@ function typeElement(element, text, speed, onDone) {
   }, speed);
 }
 
+// runs typeElement on every About paragraph in order, waiting for one
+// to finish before starting the next
 function typeAboutText() {
   let index = 0;
   function typeNext() {
@@ -44,6 +50,9 @@ function typeAboutText() {
   typeNext();
 }
 
+// watches every section on the page and tells us the moment one scrolls
+// into view. that's what triggers the fade-in from style.css, and it's
+// also what kicks off the About typing effect above
 const observer = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
         if(entry.isIntersecting){
@@ -56,14 +65,20 @@ const observer = new IntersectionObserver(function(entries){
     });
 });
 
+// start observing every section so the code above actually runs
 const sections = document.querySelectorAll('section');
 sections.forEach(function(section){
     observer.observe(section);
 });
 
+
+// ===== particle background for the hero section =====
+
+// grab the canvas and get a 2d "brush" to draw on it
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
+// make the canvas' actual drawing size match how big it appears on screen
 canvas.width = canvas.offsetWidth;
 canvas.height = canvas.offsetHeight;
 
@@ -71,7 +86,7 @@ canvas.height = canvas.offsetHeight;
 const particles = [];
 const particleCount= 80;
 
-
+// create 80 particles, each with a random position and a slow random drift
 for (let i = 0; i < particleCount; i++) {
     particles.push({
         x: Math.random() * canvas.width,
@@ -81,14 +96,15 @@ for (let i = 0; i < particleCount; i++) {
     });
 }
 
-
+// tracks where the mouse currently is over the canvas, used below to
+// push nearby particles away
 const mouse = { x: null, y: null };
 canvas.addEventListener('mousemove', function(e) {
     mouse.x = e.clientX - canvas.getBoundingClientRect().left;
     mouse.y = e.clientY - canvas.getBoundingClientRect().top;
 });
 
-
+// clears and redraws every particle, called on every frame
 function animate() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -149,6 +165,8 @@ galleryStrip.addEventListener('scroll', function() {
   }
 });
 
+
+// ===== lightbox: shared enlarged photo viewer =====
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
 const lightboxPrev = document.getElementById('lightbox-prev');
@@ -190,6 +208,7 @@ lightboxNext.addEventListener('click', function(e) {
   showImage(newIndex);
 });
 
+// clicking anywhere on the dark overlay closes the lightbox
 lightbox.addEventListener('click', function() {
   lightbox.classList.remove('active');
 });

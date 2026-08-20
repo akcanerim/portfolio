@@ -3,13 +3,14 @@
    Inter for body text - easy on the eyes for long paragraphs */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap');
 
-/* ===== Reset & Variables ===== */
+/* basic reset so every browser starts from the same blank slate */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* all the colors live here so I only have to change a tone once instead of hunting through the whole file */
 :root {
   --bg-dark: #0d1117;
   --bg-darker: #080b0f;
@@ -42,6 +43,7 @@ a {
 }
 
 /* ===== Header / Nav ===== */
+/* top nav bar, stays fixed while scrolling */
 header {
   position: fixed;
   top: 0;
@@ -62,6 +64,7 @@ nav {
   align-items: center;
 }
 
+/* clicking this jumps back to the hero section, see the <a href="#hero"> in index.html */
 .logo {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
@@ -92,6 +95,7 @@ nav {
   color: var(--accent);
 }
 
+/* hamburger button, hidden here and only shown under the mobile breakpoint at the bottom of this file. opening/closing logic is in script.js */
 .menu-toggle {
   display: none;
   background: none;
@@ -148,7 +152,7 @@ nav {
   box-shadow: 0 8px 24px var(--accent-glow);
 }
 
-/* an canvas to particle effects, gets added by script.js, this just makes sure it fills the hero */
+/* the particle canvas from script.js. it needs to fill the whole hero and sit under the text, hence z-index 1 here vs z-index 2 on the text above */
 .hero canvas {
   position: absolute;
   top: 0;
@@ -183,7 +187,7 @@ section h2::after {
   border-radius: 2px;
 }
 
-/* fade-in animation, toggled by script.js when a section scrolls into view */
+/* sections start invisible and slightly lower than their real position. script.js adds the "visible" class the first time a section scrolls into view, which triggers this transition */
 section {
   opacity: 0;
   transform: translateY(30px);
@@ -195,18 +199,57 @@ section.visible {
   transform: translateY(0);
 }
 
+/* hero is visible from the very first frame, so it skips the fade-in */
 .hero {
   opacity: 1;
   transform: none;
 }
 
 /* ===== About ===== */
+/* text here starts empty and gets typed in by script.js, see the typeAboutText function there */
 .about p {
   color: var(--text-muted);
   max-width: 60ch;
   font-size: 1.1rem;
   line-height: 1.8;
   margin-bottom: 1.2rem;
+}
+
+/* ===== Gallery ===== */
+/* horizontally scrolling strip of personal photos and videos. script.js duplicates every item and loops the scroll position so it never visibly hits an end */
+.gallery-strip {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  padding: 1rem 0 1.5rem;
+  scroll-snap-type: x mandatory;
+}
+
+.gallery-item {
+  flex: 0 0 220px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  scroll-snap-align: start;
+  transition: transform 0.3s ease;
+}
+
+img.gallery-item {
+  cursor: pointer;
+}
+
+/* alternating tilt so the strip looks a bit more like photos scattered on a table instead of a rigid grid */
+.gallery-item:nth-child(odd) {
+  transform: rotate(-2deg);
+}
+
+.gallery-item:nth-child(even) {
+  transform: rotate(2deg);
+}
+
+.gallery-item:hover {
+  transform: rotate(0deg) scale(1.05);
 }
 
 /* ===== Projects ===== */
@@ -224,6 +267,7 @@ section.visible {
   transition: transform 0.25s ease, border-color 0.25s ease;
 }
 
+/* small screenshot gallery inside a project card, opens in the same lightbox as the personal gallery above but keeps its own image set */
 .project-images {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -245,6 +289,7 @@ section.visible {
   transform: scale(1.05);
 }
 
+/* used for the note under UniTest saying the repo is private */
 .project-note {
   display: inline-block;
   color: var(--text-muted);
@@ -303,6 +348,7 @@ section.visible {
   font-weight: 600;
 }
 
+/* GitHub and LinkedIn icons at the bottom of the contact section */
 .social-links {
   display: flex;
   gap: 1.2rem;
@@ -328,30 +374,8 @@ footer {
   border-top: 1px solid var(--border);
 }
 
-/* ===== Mobile ===== */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .nav-links.open {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background-color: var(--bg-darker);
-    padding: 1.5rem;
-    gap: 1.2rem;
-    border-bottom: 1px solid var(--border);
-  }
-}
-
+/* ===== Lightbox ===== */
+/* fullscreen overlay for viewing an enlarged photo. hidden by default, script.js toggles the "active" class open and closed */
 .lightbox {
   display: none;
   position: fixed;
@@ -374,6 +398,7 @@ footer {
   border-radius: 8px;
 }
 
+/* prev/next arrows on either side of the enlarged photo */
 .lightbox-arrow {
   position: absolute;
   top: 50%;
@@ -398,37 +423,27 @@ footer {
   color: var(--accent);
 }
 
-/* ===== Gallery ===== */
-.gallery-strip {
-  display: flex;
-  gap: 1.2rem;
-  overflow-x: auto;
-  padding: 1rem 0 1.5rem;
-  scroll-snap-type: x mandatory;
-}
+/* ===== Mobile ===== */
+/* below this width, the nav switches from full text links to a hamburger menu that slides down when tapped, toggled in script.js */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
 
-.gallery-item {
-  flex: 0 0 220px;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  scroll-snap-align: start;
-  transition: transform 0.3s ease;
-}
+  .menu-toggle {
+    display: block;
+  }
 
-img.gallery-item {
-  cursor: pointer;
-}
-
-.gallery-item:nth-child(odd) {
-  transform: rotate(-2deg);
-}
-
-.gallery-item:nth-child(even) {
-  transform: rotate(2deg);
-}
-
-.gallery-item:hover {
-  transform: rotate(0deg) scale(1.05);
+  .nav-links.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--bg-darker);
+    padding: 1.5rem;
+    gap: 1.2rem;
+    border-bottom: 1px solid var(--border);
+  }
 }
