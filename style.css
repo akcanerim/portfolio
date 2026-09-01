@@ -334,10 +334,6 @@ img.gallery-item {
   transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-.project-doc-link::before {
-  content: 'PDF - ';
-}
-
 .project-doc-link:hover {
   background-color: var(--accent);
   color: var(--bg-darker);
