@@ -218,7 +218,7 @@ section.visible {
 .about-content {
   display: flex;
   gap: 3rem;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -233,6 +233,7 @@ section.visible {
   border: 1px solid var(--border);
   object-fit: cover;
   flex-shrink: 0;
+  transition: transform 0.15s ease-out;
 }
 
 /* ===== Gallery ===== */
