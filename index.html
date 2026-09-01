@@ -77,6 +77,8 @@ scrolling to the end quietly wraps back to the start instead of just stopping. a
 
 <!-- Projects Section -->
 <!-- projects go here, one card per project --> 
+<!-- Projects Section -->
+<!-- projects go here, one card per project --> 
 <section id="projects" class="projects">
   <h2>Projects</h2>
   <div class="project-grid">
@@ -85,9 +87,18 @@ scrolling to the end quietly wraps back to the start instead of just stopping. a
       <p>A system that takes an exam paper an instructor uploads, detects the numeric values in each question, and uses AI to change those values while keeping the underlying logic intact. The goal is to generate a unique version of the exam for every student, making it fairer and cutting down on copying. Built with a teammate, and still actively growing.</p>
       <!-- lightbox-group means these three screenshots open together, with their own set of prev/next arrows separate from the gallery photos above -->
       <div class="project-images lightbox-group">
-        <img src="images/unitest/ornek-sinav-kagidi.png" alt="Sample exam paper">
-        <img src="images/unitest/soru-kagidi-ciktisi.png" alt="Question paper printout">
-        <img src="images/unitest/cevap-kagidi-ciktisi.png" alt="Answer paper printout">
+        <figure>
+          <img src="images/unitest/ornek-sinav-kagidi.png" alt="Sample exam paper">
+          <figcaption>Sample exam paper</figcaption>
+        </figure>
+        <figure>
+          <img src="images/unitest/soru-kagidi-ciktisi.png" alt="Question paper printout">
+          <figcaption>Question paper printout</figcaption>
+        </figure>
+        <figure>
+          <img src="images/unitest/cevap-kagidi-ciktisi.png" alt="Answer paper printout">
+          <figcaption>Answer paper printout</figcaption>
+        </figure>
       </div>
       <!-- repo is shared with a teammate who'd rather keep it private for now, so there's no GitHub link here, just this note -->
       <span class="project-note">Private repo (team project, not public yet)</span>
@@ -97,12 +108,30 @@ scrolling to the end quietly wraps back to the start instead of just stopping. a
       <h3>Elevator Maintenance Platform</h3>
       <p>An idea I had for my dad's elevator business (installation, repair, and maintenance). He was getting calls day and night for breakdowns and people stuck in elevators. I designed the whole system and worked with AI tools to build it out: it tracks every building and elevator he services, logs maintenance history, and has separate dashboards for admin, moderator, and regular users. The part I'm most proud of is the AI assistant, built on GPT-4o-mini with real fault codes and safety instructions built into it, so a technician can ask about an error code on site and get an actual answer on what's wrong and what to do next.</p>
       <div class="project-images lightbox-group">
-        <img src="images/asansor/ai-ariza-analizi.png" alt="AI assistant explaining an elevator fault code">
-        <img src="images/asansor/admin-paneli.png" alt="Admin dashboard showing tracked elevators and risk levels">
-        <img src="images/asansor/kullanici-yonetimi.png" alt="Role management panel for admin, moderator, and user accounts">
-        <img src="images/asansor/bakim-kaydi.png" alt="Maintenance record with completed service history">
-        <img src="images/asansor/fiyat-listesi.png" alt="Admin editing the service price list">
-        <img src="images/asansor/kritik-bildirimler.png" alt="Critical alerts for elevators overdue for maintenance">
+        <figure>
+          <img src="images/asansor/ai-ariza-analizi.png" alt="AI assistant explaining an elevator fault code">
+          <figcaption>AI assistant explaining an elevator fault code</figcaption>
+        </figure>
+        <figure>
+          <img src="images/asansor/admin-paneli.png" alt="Admin dashboard showing tracked elevators and risk levels">
+          <figcaption>Admin dashboard showing tracked elevators and risk levels</figcaption>
+        </figure>
+        <figure>
+          <img src="images/asansor/kullanici-yonetimi.png" alt="Role management panel for admin, moderator, and user accounts">
+          <figcaption>Role management panel for admin, moderator, and user accounts</figcaption>
+        </figure>
+        <figure>
+          <img src="images/asansor/bakim-kaydi.png" alt="Maintenance record with completed service history">
+          <figcaption>Maintenance record with completed service history</figcaption>
+        </figure>
+        <figure>
+          <img src="images/asansor/fiyat-listesi.png" alt="Admin editing the service price list">
+          <figcaption>Admin editing the service price list</figcaption>
+        </figure>
+        <figure>
+          <img src="images/asansor/kritik-bildirimler.png" alt="Critical alerts for elevators overdue for maintenance">
+          <figcaption>Critical alerts for elevators overdue for maintenance</figcaption>
+        </figure>
       </div>
       <span class="project-note">Private for now, might open it up once it's further along</span>
     </div>
@@ -151,11 +180,14 @@ scrolling to the end quietly wraps back to the start instead of just stopping. a
 
 
   <!-- shared enlarged view for any photo on the page, project screenshots and personal gallery both use this same popup. starts hidden, and script.js fills in the image and toggles it open when something inside a lightbox-group gets clicked -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-arrow lightbox-prev" id="lightbox-prev">&#10094;</button>
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-arrow lightbox-prev" id="lightbox-prev">&#10094;</button>
+  <div class="lightbox-content">
     <img src="" alt="" id="lightbox-img">
-    <button class="lightbox-arrow lightbox-next" id="lightbox-next">&#10095;</button>
+    <p class="lightbox-caption" id="lightbox-caption"></p>
   </div>
+  <button class="lightbox-arrow lightbox-next" id="lightbox-next">&#10095;</button>
+</div>
 
   <!-- loaded last on purpose, so the browser finishes building the page before any of this code tries to reach into it -->
   <script src="script.js"></script>

@@ -289,6 +289,18 @@ img.gallery-item {
   transform: scale(1.05);
 }
 
+.project-images figure {
+  margin: 0;
+}
+
+.project-images figcaption {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  text-align: center;
+  line-height: 1.3;
+}
+
 /* used for the note under UniTest saying the repo is private */
 .project-note {
   display: inline-block;
@@ -300,10 +312,6 @@ img.gallery-item {
 .project-card:hover {
   transform: translateY(-6px);
   border-color: var(--accent);
-}
-
-.project-card:hover .project-img {
-  transform: scale(1.03);
 }
 
 .project-card h3 {
@@ -392,10 +400,23 @@ footer {
   display: flex;
 }
 
-.lightbox img {
+.lightbox-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.lightbox-content img {
   max-width: 90vw;
-  max-height: 90vh;
+  max-height: 85vh;
   border-radius: 8px;
+}
+
+.lightbox-caption {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  text-align: center;
 }
 
 /* prev/next arrows on either side of the enlarged photo */

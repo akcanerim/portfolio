@@ -169,6 +169,7 @@ galleryStrip.addEventListener('scroll', function() {
 // ===== lightbox: shared enlarged photo viewer =====
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
 const lightboxPrev = document.getElementById('lightbox-prev');
 const lightboxNext = document.getElementById('lightbox-next');
 
@@ -180,6 +181,7 @@ let currentImageIndex = 0;
 function showImage(index) {
   currentImageIndex = index;
   lightboxImg.src = currentGroupImages[index].src;
+  lightboxCaption.textContent = currentGroupImages[index].alt;
 }
 
 // there can be more than one photo group on the page (project screenshots,
