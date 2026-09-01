@@ -214,25 +214,3 @@ lightboxNext.addEventListener('click', function(e) {
 lightbox.addEventListener('click', function() {
   lightbox.classList.remove('active');
 });
-
-// subtle parallax: the profile photo drifts slightly toward the mouse
-const aboutPhoto = document.querySelector('.about-photo');
-
-document.addEventListener('mousemove', function(e) {
-  const rect = aboutPhoto.getBoundingClientRect();
-  const photoCenterX = rect.left + rect.width / 2;
-  const photoCenterY = rect.top + rect.height / 2;
-
-  // how far the mouse is from the photo's center, scaled way down
-  // so the movement stays subtle instead of chasing the cursor around
-  let offsetX = (e.clientX - photoCenterX) / 25;
-  let offsetY = (e.clientY - photoCenterY) / 25;
-
-  // clamp the movement so it never drifts too far, even with the
-  // mouse all the way across the screen
-  const maxOffset = 12;
-  offsetX = Math.max(-maxOffset, Math.min(maxOffset, offsetX));
-  offsetY = Math.max(-maxOffset, Math.min(maxOffset, offsetY));
-
-  aboutPhoto.style.transform = `translate(${offsetX}px, ${offsetY}px)`;
-});

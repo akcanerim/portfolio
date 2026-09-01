@@ -233,7 +233,6 @@ section.visible {
   border: 1px solid var(--border);
   object-fit: cover;
   flex-shrink: 0;
-  transition: transform 0.15s ease-out;
 }
 
 /* ===== Gallery ===== */
