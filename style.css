@@ -303,13 +303,25 @@ img.gallery-item {
 
 .project-doc-link {
   display: inline-block;
+  background-color: var(--bg-dark);
+  color: var(--accent);
+  border: 1px solid var(--accent);
   font-weight: 600;
-  font-size: 0.9rem;
-  margin-bottom: 0.6rem;
+  font-size: 0.85rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  margin-bottom: 0.8rem;
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .project-doc-link::before {
   content: 'PDF - ';
+}
+
+.project-doc-link:hover {
+  background-color: var(--accent);
+  color: var(--bg-darker);
+  transform: translateY(-2px);
 }
 
 /* used for the note under UniTest saying the repo is private */
