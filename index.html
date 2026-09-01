@@ -12,7 +12,7 @@
   <header>
     <nav>
       <!-- clicking my name jumps back to the hero section at the top -->
-      <a href="#hero" class="logo">Erim Akcan</a>      
+      <a href="#hero" class="logo">Erim Akcan</a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#gallery">Life</a></li>
@@ -26,7 +26,7 @@
   </header>
 
   <!-- Hero Section -->
-  <!-- first thing visitors see. the canvas behind the text draws the moving particle background, all of that is handled in script.js --> 
+  <!-- first thing visitors see. the canvas behind the text draws the moving particle background, all of that is handled in script.js -->
   <section id="hero" class="hero">
     <canvas id="particles"></canvas>
     <h1>Hi, I'm Erim Akcan</h1>
@@ -35,7 +35,7 @@
   </section>
 
   <!-- About Section -->
-  <!-- short bio. the paragraphs here start out empty and get typed in letter by letter the first time this section scrolls into view, that effect also lives in script.js --> 
+  <!-- short bio. the paragraphs here start out empty and get typed in letter by letter the first time this section scrolls into view, that effect also lives in script.js -->
   <section id="about" class="about">
     <div class="about-content">
       <div class="about-text">
@@ -52,112 +52,107 @@
     </div>
   </section>
 
-
-<!-- Gallery Section -->
-<!-- personal gallery, mix of Erasmus photos and a couple of things I like. script.js duplicates all of these items once and loops the strip so
-scrolling to the end quietly wraps back to the start instead of just stopping. any photo here can be clicked to open in the lightbox at the bottom of the page, videos just autoplay on loop -->
-
-<section id="gallery" class="gallery">
-  <h2>Beyond the Code</h2>
-  <div class="gallery-strip lightbox-group">
-    <img src="gallery/budapeste-parlemento.jpg" alt="Budapest Parliament" class="gallery-item">
-    <video class="gallery-item" autoplay muted loop playsinline>
-      <source src="gallery/paris-eyfel-gece.mp4" type="video/mp4">
-    </video>
-    <img src="gallery/sighisoara.jpg" alt="Sighisoara, Romania" class="gallery-item">
-    <img src="gallery/we-love-uav.jpg" alt="Aurel Vlaicu University of Arad" class="gallery-item">
-    <video class="gallery-item" autoplay muted loop playsinline>
-      <source src="gallery/iznik-gunbatimi.mp4" type="video/mp4">
-    </video>
-    <img src="gallery/phantom-opera-afis.jpg" alt="Phantom of the Opera" class="gallery-item">
-    <img src="gallery/prag-kunduzlar.jpg" alt="Prague" class="gallery-item">
-    <img src="gallery/koln-katedral-selfie.jpg" alt="Cologne Cathedral interior" class="gallery-item">
-    <video class="gallery-item" autoplay muted loop playsinline>
-      <source src="gallery/trenle-yolculuk.mp4" type="video/mp4">
-    </video>
-    <img src="gallery/amsterdam-kanal-pozu.jpg" alt="Amsterdam canal" class="gallery-item">
-  </div>
-</section>
-
-<!-- Projects Section -->
-<!-- projects go here, one card per project --> 
-<section id="projects" class="projects">
-  <h2>Projects</h2>
-  <div class="project-grid">
-    <div class="project-card">
-      <h3>UniTest</h3>
-      <p>A system that takes an exam paper an instructor uploads, detects the numeric values in each question, and uses AI to change those values while keeping the underlying logic intact. The goal is to generate a unique version of the exam for every student, making it fairer and cutting down on copying. Built with a teammate, and still actively growing.</p>
-      <!-- lightbox-group means these three screenshots open together, with their own set of prev/next arrows separate from the gallery photos above -->
-      <div class="project-images lightbox-group">
-        <figure>
-          <img src="images/unitest/ornek-sinav-kagidi.png" alt="Sample exam paper">
-          <figcaption>Sample exam paper</figcaption>
-        </figure>
-        <figure>
-          <img src="images/unitest/soru-kagidi-ciktisi.png" alt="Question paper printout">
-          <figcaption>Question paper printout</figcaption>
-        </figure>
-        <figure>
-          <img src="images/unitest/cevap-kagidi-ciktisi.png" alt="Answer paper printout">
-          <figcaption>Answer paper printout</figcaption>
-        </figure>
-      </div>
-      <a href="project-docs/UniTest-Project-Portfolio.pdf" target="_blank" class="project-doc-link">Full project write-up (PDF)</a>
-      <!-- repo is shared with a teammate who'd rather keep it private for now, so there's no GitHub link here, just this note -->
-      <span class="project-note">Private repo (team project, not public yet)</span>
+  <!-- Gallery Section -->
+  <!-- personal gallery, mix of Erasmus photos and a couple of things I like. script.js duplicates all of these items once and loops the strip so scrolling to the end quietly wraps back to the start instead of just stopping. any photo here can be clicked to open in the lightbox at the bottom of the page, videos just autoplay on loop -->
+  <section id="gallery" class="gallery">
+    <h2>Beyond the Code</h2>
+    <div class="gallery-strip lightbox-group">
+      <img src="gallery/budapeste-parlemento.jpg" alt="Budapest Parliament" class="gallery-item">
+      <video class="gallery-item" autoplay muted loop playsinline>
+        <source src="gallery/paris-eyfel-gece.mp4" type="video/mp4">
+      </video>
+      <img src="gallery/sighisoara.jpg" alt="Sighisoara, Romania" class="gallery-item">
+      <img src="gallery/we-love-uav.jpg" alt="Aurel Vlaicu University of Arad" class="gallery-item">
+      <video class="gallery-item" autoplay muted loop playsinline>
+        <source src="gallery/iznik-gunbatimi.mp4" type="video/mp4">
+      </video>
+      <img src="gallery/phantom-opera-afis.jpg" alt="Phantom of the Opera" class="gallery-item">
+      <img src="gallery/prag-kunduzlar.jpg" alt="Prague" class="gallery-item">
+      <img src="gallery/koln-katedral-selfie.jpg" alt="Cologne Cathedral interior" class="gallery-item">
+      <video class="gallery-item" autoplay muted loop playsinline>
+        <source src="gallery/trenle-yolculuk.mp4" type="video/mp4">
+      </video>
+      <img src="gallery/amsterdam-kanal-pozu.jpg" alt="Amsterdam canal" class="gallery-item">
     </div>
+  </section>
 
-    <div class="project-card">
-      <h3>Elevator Maintenance Platform</h3>
-      <p>An idea I had for my dad's elevator business (installation, repair, and maintenance). He was getting calls day and night for breakdowns and people stuck in elevators. I designed the whole system and worked with AI tools to build it out: it tracks every building and elevator he services, logs maintenance history, and has separate dashboards for admin, moderator, and regular users. The part I'm most proud of is the AI assistant, built on GPT-4o-mini with real fault codes and safety instructions built into it, so a technician can ask about an error code on site and get an actual answer on what's wrong and what to do next.</p>
-      <div class="project-images lightbox-group">
-        <figure>
-          <img src="images/asansor/ai-ariza-analizi.png" alt="AI assistant explaining an elevator fault code">
-          <figcaption>AI assistant explaining an elevator fault code</figcaption>
-        </figure>
-        <figure>
-          <img src="images/asansor/admin-paneli.png" alt="Admin dashboard showing tracked elevators and risk levels">
-          <figcaption>Admin dashboard showing tracked elevators and risk levels</figcaption>
-        </figure>
-        <figure>
-          <img src="images/asansor/kullanici-yonetimi.png" alt="Role management panel for admin, moderator, and user accounts">
-          <figcaption>Role management panel for admin, moderator, and user accounts</figcaption>
-        </figure>
-        <figure>
-          <img src="images/asansor/bakim-kaydi.png" alt="Maintenance record with completed service history">
-          <figcaption>Maintenance record with completed service history</figcaption>
-        </figure>
-        <figure>
-          <img src="images/asansor/fiyat-listesi.png" alt="Admin editing the service price list">
-          <figcaption>Admin editing the service price list</figcaption>
-        </figure>
-        <figure>
-          <img src="images/asansor/kritik-bildirimler.png" alt="Critical alerts for elevators overdue for maintenance">
-          <figcaption>Critical alerts for elevators overdue for maintenance</figcaption>
-        </figure>
+  <!-- Projects Section -->
+  <!-- projects go here, one card per project -->
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>UniTest</h3>
+        <p>A system that takes an exam paper an instructor uploads, detects the numeric values in each question, and uses AI to change those values while keeping the underlying logic intact. The goal is to generate a unique version of the exam for every student, making it fairer and cutting down on copying. Built with a teammate, and still actively growing.</p>
+        <!-- lightbox-group means these three screenshots open together, with their own set of prev/next arrows separate from the gallery photos above -->
+        <div class="project-images lightbox-group">
+          <figure>
+            <img src="images/unitest/ornek-sinav-kagidi.png" alt="Sample exam paper">
+            <figcaption>Sample exam paper</figcaption>
+          </figure>
+          <figure>
+            <img src="images/unitest/soru-kagidi-ciktisi.png" alt="Question paper printout">
+            <figcaption>Question paper printout</figcaption>
+          </figure>
+          <figure>
+            <img src="images/unitest/cevap-kagidi-ciktisi.png" alt="Answer paper printout">
+            <figcaption>Answer paper printout</figcaption>
+          </figure>
+        </div>
+        <a href="project-docs/UniTest-Project-Portfolio.pdf" target="_blank" class="project-doc-link">Full project write-up (PDF)</a>
+        <!-- repo is shared with a teammate who'd rather keep it private for now, so there's no GitHub link here, just this note -->
+        <span class="project-note">Private repo (team project, not public yet)</span>
       </div>
-      <a href="project-docs/Elevator-Platform-Portfolio.pdf" target="_blank" class="project-doc-link">Full project write-up (PDF)</a>
-      <span class="project-note">Private for now, might open it up once it's further along</span>
+
+      <div class="project-card">
+        <h3>Elevator Maintenance Platform</h3>
+        <p>An idea I had for my dad's elevator business (installation, repair, and maintenance). He was getting calls day and night for breakdowns and people stuck in elevators. I designed the whole system and worked with AI tools to build it out: it tracks every building and elevator he services, logs maintenance history, and has separate dashboards for admin, moderator, and regular users. The part I'm most proud of is the AI assistant, built on GPT-4o-mini with real fault codes and safety instructions built into it, so a technician can ask about an error code on site and get an actual answer on what's wrong and what to do next.</p>
+        <div class="project-images lightbox-group">
+          <figure>
+            <img src="images/asansor/ai-ariza-analizi.png" alt="AI assistant explaining an elevator fault code">
+            <figcaption>AI assistant explaining an elevator fault code</figcaption>
+          </figure>
+          <figure>
+            <img src="images/asansor/admin-paneli.png" alt="Admin dashboard showing tracked elevators and risk levels">
+            <figcaption>Admin dashboard showing tracked elevators and risk levels</figcaption>
+          </figure>
+          <figure>
+            <img src="images/asansor/kullanici-yonetimi.png" alt="Role management panel for admin, moderator, and user accounts">
+            <figcaption>Role management panel for admin, moderator, and user accounts</figcaption>
+          </figure>
+          <figure>
+            <img src="images/asansor/bakim-kaydi.png" alt="Maintenance record with completed service history">
+            <figcaption>Maintenance record with completed service history</figcaption>
+          </figure>
+          <figure>
+            <img src="images/asansor/fiyat-listesi.png" alt="Admin editing the service price list">
+            <figcaption>Admin editing the service price list</figcaption>
+          </figure>
+          <figure>
+            <img src="images/asansor/kritik-bildirimler.png" alt="Critical alerts for elevators overdue for maintenance">
+            <figcaption>Critical alerts for elevators overdue for maintenance</figcaption>
+          </figure>
+        </div>
+        <a href="project-docs/Elevator-Platform-Portfolio.pdf" target="_blank" class="project-doc-link">Full project write-up (PDF)</a>
+        <span class="project-note">Private for now, might open it up once it's further along</span>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-
-<!-- Certificates Section -->
-<!-- courses I've actually finished, each one links out to the real Coursera verification page so anyone can confirm it's genuine -->
-<section id="certificates" class="certificates">
-  <h2>Certificates</h2>
-  <ul class="certificate-list">
-    <li><a href="certificates/Introduction-to-Front-End-Development.pdf" target="_blank">Introduction to Front-End Development</a> — Meta, 2025</li>
-    <li><a href="certificates/Programming-with-JavaScript.pdf" target="_blank">Programming with JavaScript</a> — Meta, 2025</li>
-    <li><a href="certificates/Data-Analysis-with-Spreadsheets-and-SQL.pdf" target="_blank">Data Analysis with Spreadsheets and SQL</a> — Meta, 2026</li>
-    <li><a href="certificates/Introduction-to-Data-Analytics.pdf" target="_blank">Introduction to Data Analytics</a> — Meta, 2026</li>
-    <li><a href="certificates/Presentations-Speaking-so-that-People-Listen.pdf" target="_blank">Presentations: Speaking so that People Listen</a> — University of California, Irvine, 2026</li>
-    <li><a href="certificates/Business-and-Marketing-Strategies.pdf" target="_blank">Business and Marketing Strategies Specialization</a> — University of London, 2025</li>
-    <li><a href="certificates/erasmus-UAV-Participation-Erim-AKCAN.pdf" target="_blank">Project Presentation Event Participation</a> — Aurel Vlaicu University of Arad (Erasmus), 2026</li>
-  </ul>
-</section>
-
+  <!-- Certificates Section -->
+  <!-- courses I've actually finished, each one links out to the real Coursera verification page so anyone can confirm it's genuine -->
+  <section id="certificates" class="certificates">
+    <h2>Certificates</h2>
+    <ul class="certificate-list">
+      <li><a href="certificates/Introduction-to-Front-End-Development.pdf" target="_blank">Introduction to Front-End Development</a> — Meta, 2025</li>
+      <li><a href="certificates/Programming-with-JavaScript.pdf" target="_blank">Programming with JavaScript</a> — Meta, 2025</li>
+      <li><a href="certificates/Data-Analysis-with-Spreadsheets-and-SQL.pdf" target="_blank">Data Analysis with Spreadsheets and SQL</a> — Meta, 2026</li>
+      <li><a href="certificates/Introduction-to-Data-Analytics.pdf" target="_blank">Introduction to Data Analytics</a> — Meta, 2026</li>
+      <li><a href="certificates/Presentations-Speaking-so-that-People-Listen.pdf" target="_blank">Presentations: Speaking so that People Listen</a> — University of California, Irvine, 2026</li>
+      <li><a href="certificates/Business-and-Marketing-Strategies.pdf" target="_blank">Business and Marketing Strategies Specialization</a> — University of London, 2025</li>
+      <li><a href="certificates/erasmus-UAV-Participation-Erim-AKCAN.pdf" target="_blank">Project Presentation Event Participation</a> — Aurel Vlaicu University of Arad (Erasmus), 2026</li>
+    </ul>
+  </section>
 
   <!-- Contact Section -->
   <section id="contact" class="contact">
@@ -182,16 +177,15 @@ scrolling to the end quietly wraps back to the start instead of just stopping. a
     <p>&copy; 2026 Erim Akcan</p>
   </footer>
 
-
   <!-- shared enlarged view for any photo on the page, project screenshots and personal gallery both use this same popup. starts hidden, and script.js fills in the image and toggles it open when something inside a lightbox-group gets clicked -->
-<div class="lightbox" id="lightbox">
-  <button class="lightbox-arrow lightbox-prev" id="lightbox-prev">&#10094;</button>
-  <div class="lightbox-content">
-    <img src="" alt="" id="lightbox-img">
-    <p class="lightbox-caption" id="lightbox-caption"></p>
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-arrow lightbox-prev" id="lightbox-prev">&#10094;</button>
+    <div class="lightbox-content">
+      <img src="" alt="" id="lightbox-img">
+      <p class="lightbox-caption" id="lightbox-caption"></p>
+    </div>
+    <button class="lightbox-arrow lightbox-next" id="lightbox-next">&#10095;</button>
   </div>
-  <button class="lightbox-arrow lightbox-next" id="lightbox-next">&#10095;</button>
-</div>
 
   <!-- loaded last on purpose, so the browser finishes building the page before any of this code tries to reach into it -->
   <script src="script.js"></script>
