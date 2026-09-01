@@ -215,6 +215,26 @@ section.visible {
   margin-bottom: 1.2rem;
 }
 
+.about-content {
+  display: flex;
+  gap: 3rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.about-photo {
+  width: 260px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
 /* ===== Gallery ===== */
 /* horizontally scrolling strip of personal photos and videos. script.js duplicates every item and loops the scroll position so it never visibly hits an end */
 .gallery-strip {
