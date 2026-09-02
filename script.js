@@ -221,10 +221,13 @@ const greetings = ['Hi', 'Bonjour', 'Hej', 'Merhaba', 'Hola', 'Namaste', 'Hallo'
 const greetingEl = document.getElementById('greeting');
 let greetingIndex = 0;
 
+// runs the whole fade-out/swap/fade-in cycle every 2.2 seconds
 setInterval(function() {
   // fade out first, then swap the word, then fade back in
   greetingEl.style.opacity = '0';
 
+  // 300ms here has to match the transition time in style.css (#greeting),
+  // otherwise the word gets swapped before the fade-out animation finishes
   setTimeout(function() {
     greetingIndex = (greetingIndex + 1) % greetings.length;
     greetingEl.textContent = greetings[greetingIndex];
