@@ -214,3 +214,20 @@ lightboxNext.addEventListener('click', function(e) {
 lightbox.addEventListener('click', function() {
   lightbox.classList.remove('active');
 });
+
+// cycles the hero greeting through different languages, just the word
+// itself, the rest of the sentence stays put
+const greetings = ['Hi', 'Bonjour', 'Hej', 'Merhaba', 'Hola', 'Namaste', 'Hallo', 'Ciao', 'Salut', 'Salaam', 'Hei', 'Konnichiwa', 'Привет', 'Γεια', 'Ahoj', '你好', '안녕', 'Olá', 'Cześć', 'Jambo', 'Bună', 'Xin chào', 'Aloha'];
+const greetingEl = document.getElementById('greeting');
+let greetingIndex = 0;
+
+setInterval(function() {
+  // fade out first, then swap the word, then fade back in
+  greetingEl.style.opacity = '0';
+
+  setTimeout(function() {
+    greetingIndex = (greetingIndex + 1) % greetings.length;
+    greetingEl.textContent = greetings[greetingIndex];
+    greetingEl.style.opacity = '1';
+  }, 300);
+}, 2200);
