@@ -327,7 +327,8 @@ img.gallery-item {
 }
 
 .project-doc-link {
-  display: inline-block;
+  display: block;
+  width: fit-content;
   background-color: var(--bg-dark);
   color: var(--accent);
   border: 1px solid var(--accent);
